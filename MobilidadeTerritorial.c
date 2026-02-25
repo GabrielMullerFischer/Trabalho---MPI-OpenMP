@@ -151,8 +151,6 @@ int main(int argc, char** argv) {
         MPI_Sendrecv(grid_local[local_H].data(), W, MPI_TIPO_CELULA, rank_inferior, 1, 
                      grid_local[0].data(),       W, MPI_TIPO_CELULA, rank_superior, 1, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
 
-        // Se o código estivesse 100% correto conforme o trabalho pede, em vez de d_snd (um double único), ele estaria enviando a linha inteira da matriz (grid_local[1] ou grid_local[local_H]) .
-
         // movimentação dos agentes (são os buffers para a troca de agentes)
         std::vector<Agente> agentes_para_enviar_cima; // agentes que ficaram com a coordenada y < inicio_y
         std::vector<Agente> agentes_para_enviar_baixo; // agentes qie ficatam com coordenada y >= fim_y
